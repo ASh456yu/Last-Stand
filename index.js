@@ -185,14 +185,6 @@ window.onload = function () {
                 player.weapon = 'bazooka-rocket-launcher'
             }
         }
-
-        // if (powerUps=='Blaze Bolt') {
-        //     bulletPic = '05'
-        // } else if (powerUps=='Quantum Ember') {
-        //     bulletPic = '07'
-        // } else if (powerUps=='Ion Blaze') {
-        //     bulletPic = '09'
-        // }
     })
 
 
@@ -1420,8 +1412,9 @@ window.onload = function () {
 
     function animate() {
         gameId = requestAnimationFrame(animate)
-        c.fillStyle = 'white'
-        c.fillRect(0, 0, canvas.width, canvas.height)
+        // c.fillStyle = 'white'
+        // c.fillRect(0, 0, canvas.width, canvas.height)
+        c.clearRect(0,0,canvas.width,canvas.height)
         c.save()
         c.scale(2, 2)
         c.translate(camera.position.x, camera.position.y)
@@ -1566,14 +1559,10 @@ window.onload = function () {
     }
 
     function startGame() {
-        const mypromise = new Promise((resolve,reject)=>{
-            isRunning = true
-            canvas.hidden = false
-            init()
-            resolve(1)
-        }).then((resolve1,reject1)=> {
-            animate()
-        })
+        isRunning = true
+        canvas.hidden = false
+        init()
+        animate()
     }
 
 
